@@ -1,3 +1,3 @@
-﻿from act import list
+﻿from googlesheet_connect import listfromgoogle
 
-list()
+listfromgoogle()

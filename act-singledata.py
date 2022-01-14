@@ -1,3 +1,3 @@
 ﻿from login import check
 
-check('S8HE7BM3','Fishfish@810716') #李泓緯
+check('S8HE7BM3','Fishfish@810716')
