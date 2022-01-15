@@ -1,5 +1,6 @@
 import pygsheets
 from login import check
+from datetime import datetime
 
 def listfromgoogle():
     gc = pygsheets.authorize(service_account_file='./credentials.json')
@@ -8,7 +9,7 @@ def listfromgoogle():
 
     ws = sh.worksheet_by_title('train')
     cell_list = ws.range('A1:I72')
-    print(cell_list[0][3].value)
+    ws.update_value((1, 7), str(datetime.now()))
 
     for i in range(72):
         if cell_list[0][3].value == '1':
