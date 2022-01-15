@@ -1,5 +1,4 @@
 import pygsheets
-import pandas as pd
 from login import check
 
 def listfromgoogle():
@@ -8,10 +7,12 @@ def listfromgoogle():
     sh = gc.open_by_url(survey_url)
 
     ws = sh.worksheet_by_title('train')
+    cell_list = ws.range('A1:I72')
+    print(cell_list[0][3].value)
 
     for i in range(72):
-        if ws.get_value(i+1,4) == 1:
+        if cell_list[0][3].value == '1':
             try:
-                check(ws.get_value(i+1,0),ws.get_value(i+1,1))
+                check(cell_list[i][0].value, cell_list[i][1].value)
             except:
-                ws.update_value((i+1,4), '0')
+                ws.update_value((i+1, 4), '0')
