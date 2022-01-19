@@ -6,6 +6,7 @@ import time
 LoginUrl= ('https://ssp.eportal.npa.gov.tw/portal/index.do')
 BookUrl= ('https://oc.eportal.npa.gov.tw/NM106-508Web/index.jsp')
 ReadUrl= ('https://oc.eportal.npa.gov.tw/NM106-508Web/OC02A01.jsp')
+CheckUrl= ('https://oa2.eportal.npa.gov.tw/OA2/OA2V/OA2VACHECK.aspx')
 LogoutUrl1= ('https://oc.eportal.npa.gov.tw/NM106-508Web/LogoutSuccess.jsp')
 LogoutUrl2= ('https://ssp.eportal.npa.gov.tw/portal/logout.do')
 
@@ -29,6 +30,13 @@ def check(UserName,UserPass):
         else:
             Browser.find_element_by_xpath("/html/body/div[6]/div[1]/button").click()
         time.sleep(1)
+
+    Browser.get(CheckUrl)
+    time.sleep(1)
+    Browser.find_element_by_xpath("//button[@id='ctl00_cphPage_btn_SelAll']").click()
+    time.sleep(1)
+    Browser.find_element_by_xpath("//button[@id='ctl00_cphPage_btn_Confirm21']").click()
+    time.sleep(1)
     Browser.quit()
 
 
